@@ -11,6 +11,7 @@ public class Dispatcher<CommandType: Command> {
     public typealias Handler = (CommandType) -> Void
 
     private let handler: Handler
+    private let queue: DispatchQueue = .init(label: "UseCase.command-handler")
 
     init(handler: @escaping Handler) {
         self.handler = handler
@@ -19,6 +20,8 @@ public class Dispatcher<CommandType: Command> {
     /// this method dispatch command to Handler
     /// - Parameter command: A Command that request process to handler
     public func dispatch(_ command: CommandType) {
-        handler(command)
+        queue.async {
+            self.handler(command)
+        }
     }
 }
