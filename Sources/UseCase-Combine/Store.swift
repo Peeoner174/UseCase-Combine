@@ -11,30 +11,34 @@ import Combine
 public class Store<State: Equatable> {
 
     private class Container {
-        var state: State
+        var events: [State]
+        var state: State { didSet { events.append(self.state) } }
 
         init(state: State) {
             self.state = state
+            self.events = [state]
         }
     }
 
     private let container: Container
 
     let stateRelay: StateRelay<State>
+    let eventsRelay: EventsSourcingRelay<State>
 
     public var currentState: State {
-        return container.state
+        container.state
     }
 
     public init(state: State) {
         let container = Container(state: state)
         stateRelay = .init(container.state)
+        eventsRelay = .init(container.events)
         self.container = container
     }
 
     public func update(updater: @escaping (inout State) -> Void) {
-        var state = self.container.state
-        updater(&state)
-        self.stateRelay.accept(state)
+        updater(&self.container.state)
+        stateRelay.accept(self.container.state)
+        eventsRelay.accept(self.container.events)
     }
 }
