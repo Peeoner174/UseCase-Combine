@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 public protocol Command {
     associatedtype State: Equatable
