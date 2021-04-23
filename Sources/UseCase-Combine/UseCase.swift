@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 public protocol Command {
     associatedtype State: Equatable
@@ -15,10 +16,12 @@ public class UseCase<CommandType: Command> {
 
     public let dispatcher: Dispatcher<CommandType>
     public let state: StateRelay<CommandType.State>
+    public let eventsSourcing: EventsSourcingRelay<CommandType.State>
 
-    init(dispatcher: Dispatcher<CommandType>, publisher: CurrentValueRelay<CommandType.State>) {
+    init(dispatcher: Dispatcher<CommandType>, store: Store<CommandType.State>) {
         self.dispatcher = dispatcher
-        self.state = publisher
+        self.state = store.stateRelay
+        self.eventsSourcing = store.eventsRelay
     }
 
     deinit {
@@ -39,6 +42,6 @@ public extension UseCase {
         let store = Store(state: state)
         let handler = configure(store)
 
-        return UseCase<CommandType>(dispatcher: Dispatcher<CommandType> { handler($0) }, publisher: store.stateRelay)
+        return UseCase<CommandType>(dispatcher: Dispatcher<CommandType> { handler($0) }, store: store)
     }
 }

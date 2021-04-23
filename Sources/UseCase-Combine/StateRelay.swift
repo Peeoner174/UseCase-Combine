@@ -31,3 +31,5 @@ public final class CurrentValueRelay<Output>: Publisher {
 }
 
 public typealias StateRelay<State: Equatable> = CurrentValueRelay<State>
+public typealias EventsSourcingRelay<State: Equatable> = CurrentValueRelay<[State]>
+ 
