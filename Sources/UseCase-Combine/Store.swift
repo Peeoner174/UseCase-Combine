@@ -22,8 +22,8 @@ public class Store<State: Equatable> {
 
     private let container: Container
 
-    let stateRelay: StateRelay<State>
-    let eventsRelay: EventsSourcingRelay<State>
+    public let stateRelay: StateRelay<State>
+    public let eventsRelay: EventsSourcingRelay<State>
 
     public var currentState: State {
         container.state
