@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CCC6D0A28D8F54100472FA7 /* CommandErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC6D0928D8F54100472FA7 /* CommandErasure.swift */; };
+		5CCC6D1028D8F9B100472FA7 /* TimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC6D0F28D8F9B100472FA7 /* TimerUseCase.swift */; };
 		6E6FC63F26243477009AFF75 /* UseCase_Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FC63526243477009AFF75 /* UseCase_Combine.framework */; };
 		6E6FC64426243477009AFF75 /* UseCase_CombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FC64326243477009AFF75 /* UseCase_CombineTests.swift */; };
 		6E6FC64626243477009AFF75 /* UseCase_Combine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FC63826243477009AFF75 /* UseCase_Combine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CCC6D0928D8F54100472FA7 /* CommandErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandErasure.swift; sourceTree = "<group>"; };
+		5CCC6D0F28D8F9B100472FA7 /* TimerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUseCase.swift; sourceTree = "<group>"; };
 		6E6FC63526243477009AFF75 /* UseCase_Combine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UseCase_Combine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6FC63826243477009AFF75 /* UseCase_Combine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseCase_Combine.h; sourceTree = "<group>"; };
 		6E6FC63926243477009AFF75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				6E6FC6562624353C009AFF75 /* Dispatcher.swift */,
 				6E6FC65A2624355D009AFF75 /* UseCase.swift */,
 				6E6FC65E26243592009AFF75 /* Store.swift */,
+				5CCC6D0928D8F54100472FA7 /* CommandErasure.swift */,
 			);
 			path = "UseCase-Combine";
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 		6E6FC64226243477009AFF75 /* UseCase-CombineTests */ = {
 			isa = PBXGroup;
 			children = (
+				5CCC6D0F28D8F9B100472FA7 /* TimerUseCase.swift */,
 				6E6FC64326243477009AFF75 /* UseCase_CombineTests.swift */,
 				6E6FC64526243477009AFF75 /* Info.plist */,
 			);
@@ -207,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCC6D0A28D8F54100472FA7 /* CommandErasure.swift in Sources */,
 				6E6FC65B2624355D009AFF75 /* UseCase.swift in Sources */,
 				6E6FC6572624353C009AFF75 /* Dispatcher.swift in Sources */,
 				6E6FC65326243501009AFF75 /* StateRelay.swift in Sources */,
@@ -219,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6FC64426243477009AFF75 /* UseCase_CombineTests.swift in Sources */,
+				5CCC6D1028D8F9B100472FA7 /* TimerUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

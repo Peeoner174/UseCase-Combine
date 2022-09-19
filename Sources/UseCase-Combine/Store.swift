@@ -2,10 +2,9 @@
 //  Store.swift
 //  UseCase-Combine
 //
-//  Created by MSI on 12.04.2021.
+//  Created by Pavel Kochenda on 12.04.2021.
 //
 
-import Foundation
 import Combine
 
 public class Store<State: Equatable> {

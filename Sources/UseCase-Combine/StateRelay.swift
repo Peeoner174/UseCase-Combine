@@ -2,16 +2,16 @@
 //  StateRelay.swift
 //  UseCase-Combine
 //
-//  Created by MSI on 12.04.2021.
+//  Created by Pavel Kochenda on 12.04.2021.
 //
 
 import Foundation
 import Combine
 
 public final class CurrentValueRelay<Output>: Publisher {
-    private let subject: CurrentValueSubject<Output, Never>
-    
     public typealias Failure = Never
+    
+    private let subject: CurrentValueSubject<Output, Never>
     
     public init(_ value: Output) {
         subject = .init(value)
