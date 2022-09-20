@@ -60,15 +60,3 @@ class TimerExecutor: CommandExecutor {
         }
     }
 }
-
-extension TimerExecutor {
-    func asAnyCommandExecutor() -> AnyCommandExecutor<CommandType> {
-        AnyCommandExecutor<CommandType>(self)
-    }
-}
-
-extension UseCase {
-    static func timer() -> UseCase<TimerCommand> {
-        .store(.stopped, commandExecutor: TimerExecutor().asAnyCommandExecutor())
-    }
-}

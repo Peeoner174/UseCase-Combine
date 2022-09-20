@@ -18,6 +18,12 @@ public protocol CommandExecutor {
     func execute(with store: Store<CommandType.State>) -> ExecuteDispatchHandler
 }
 
+public extension CommandExecutor {
+    func asAnyCommandExecutor() -> AnyCommandExecutor<CommandType> {
+        AnyCommandExecutor<CommandType>(self)
+    }
+}
+
 public class UseCase<CommandType: Command> {
     public let dispatcher: Dispatcher<CommandType>
     public let state: StateRelay<CommandType.State>
