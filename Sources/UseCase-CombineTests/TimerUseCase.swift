@@ -28,7 +28,7 @@ enum TimerCommand: Command {
     case reset
 }
 
-class TimerCommandExecutor: CommandExecutor {
+class TimerExecutor: CommandExecutor {
     typealias CommandType = TimerCommand
     
     private var timer: Timer?
@@ -61,7 +61,7 @@ class TimerCommandExecutor: CommandExecutor {
     }
 }
 
-extension TimerCommandExecutor {
+extension TimerExecutor {
     func asAnyCommandExecutor() -> AnyCommandExecutor<CommandType> {
         AnyCommandExecutor<CommandType>(self)
     }
@@ -69,6 +69,6 @@ extension TimerCommandExecutor {
 
 extension UseCase {
     static func timer() -> UseCase<TimerCommand> {
-        .store(.stopped, commandExecutor: TimerCommandExecutor().asAnyCommandExecutor())
+        .store(.stopped, commandExecutor: TimerExecutor().asAnyCommandExecutor())
     }
 }
